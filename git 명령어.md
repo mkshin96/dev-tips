@@ -58,3 +58,6 @@ $ git checkout v1.0.0
 ~~~bash
 $ git checkout -b version2 v1.0.0
 ~~~
+
+### 참고
+- [링크](https://git-scm.com/book/ko/v2/Git%EC%9D%98-%EA%B8%B0%EC%B4%88-%ED%83%9C%EA%B7%B8)
