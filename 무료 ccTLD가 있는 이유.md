@@ -27,8 +27,8 @@
 - 만약 `IP`혹은 Domain name 정보가 필요한 프로토콜이라면 `:` 다음에 `//`를 적는다.
 - 프로토콜 구분자인 `:`혹은 다음에는 프로토콜마다 특화된 정보를 적는다.
     - 예1) http://www.example.com/a.gif - IP 혹은 Domain name 정보가 필요한 형태 ( www.example.com에 있는 a.gif를 가리키고 있음 )
-    예2) ftp://id:pass@192.168.1.234/a.gif - IP 혹은 Domain name 정보가 필요한 형태 ( 192.168.1.234에 있는 a.gif를 가리키고 있음 )
-    예3) mailto:somebody@mail.somehost.com - IP정보가 필요없는 프로토콜 ( mailto 프로토콜은 단지 메일을 받는 사람의 주소를 나타냄 )
+    - 예2) ftp://id:pass@192.168.1.234/a.gif - IP 혹은 Domain name 정보가 필요한 형태 ( 192.168.1.234에 있는 a.gif를 가리키고 있음 )
+    - 예3) mailto:somebody@mail.somehost.com - IP정보가 필요없는 프로토콜 ( mailto 프로토콜은 단지 메일을 받는 사람의 주소를 나타냄 )
 
 ### 무료 ccTLD(country code Top-Level Domain)가 있는 이유
 - 인터넷이 열악한 국가들에게 최상위 도메인을 얻어 무료로 제공하고, 그로 인해서 얻는 광고수입이나 유료결제를 통한 도메인 수입을 해당 국가의 IT 발전에 큰 기여를 한다고 함
