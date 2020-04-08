@@ -34,3 +34,4 @@ ln -s /symbolic_source /symbolic_link
 
 ### 참고
 - https://webdir.tistory.com/148
+- https://ora-sysdba.tistory.com/entry/Cloud-Computing-Amazon-EC2-%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4%EC%9D%98-TIMEZONE-%EB%B3%80%EA%B2%BD
