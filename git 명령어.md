@@ -1,4 +1,6 @@
-## Tag
+# git 명령어
+
+### git tag
 
 - `git tag` : 이미 만들어진 태그가 있는지 확인
 - `git tag -l` 옵션을 사용해서 태그를 검색할 수 있다. 예를 들어 1.8.5 버전의 태그들만 검색하고 싶으면 다음과 같이 실행한다.
@@ -61,3 +63,10 @@ $ git checkout -b version2 v1.0.0
 
 ### 참고
 - [링크](https://git-scm.com/book/ko/v2/Git%EC%9D%98-%EA%B8%B0%EC%B4%88-%ED%83%9C%EA%B7%B8)
+
+### git merge와 git merge --no-ff의 차이
+- `git merge`
+    - `--ff`가 기본 옵션
+    - 커밋간의 관계가 **fast forward**일 경우 병합커밋이 만들어지지 않고 merge됨
+- `git merge --no-ff`
+    - 커밋간의 관계가 **fast forward**일 경우에도 병합커밋이 생성됨
