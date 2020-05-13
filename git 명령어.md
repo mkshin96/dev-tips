@@ -61,3 +61,10 @@ $ git checkout -b version2 v1.0.0
 
 ### 참고
 - [링크](https://git-scm.com/book/ko/v2/Git%EC%9D%98-%EA%B8%B0%EC%B4%88-%ED%83%9C%EA%B7%B8)
+
+#### 설정 해제
+- `git config --unset ~~~~`
+- ex) git bash에 등록되어있는 `user.name`, `user.email` 해제
+	- `git config --unset --global user.name`
+	- `git config --unset --global user.email`
+
