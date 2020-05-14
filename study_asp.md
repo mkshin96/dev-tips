@@ -2,7 +2,7 @@
 
 - `Dim`
     - 변수의 선언
-~~~asp
+~~~vbnet
 DIM a, b
 a = "asdf"
 b = 1234
@@ -12,7 +12,7 @@ b = 1234
 
 - `Dim()`
     - 배열의 선언
-~~~asp
+~~~vbnet
 Dim A() //A변수 언언
 ReDim A(3) //A변수의 배열은 0~3 총 4개로 지정
 A(0) = 0
@@ -26,7 +26,7 @@ response.write(A(0) & A(1))
 
 - `SET`
     - 객체의 선언
-~~~asp
+~~~vbnet
 set asdf=Server.CreateObject("개체이름")
 ~~~
 > asp에서 객체를 사용하려면 반드시 `set`이라는 연산자를 사용해야 한다. 그렇지 않으면 우리는 객체의 인스턴스를 생성할 수가 없으며, 그 객체의 어떠한 기능도 사용할 수 없다. 객체를 사용하고자 할 경우 `set`명령을 통해서 그 객체의 인스턴스를 생성할 수가 있다.
@@ -36,7 +36,7 @@ set asdf=Server.CreateObject("개체이름")
 - `InStr("기준 문자열", "찾는 문자열")`
     - 찾는 문자열이 몇 번째에 있는지 반환한다.
     - `asp`는 보통 대소문자를 구분하지 않지만, `InStr`함수는 대소문자를 구분한다.
-~~~asp
+~~~vbnet
 <%
     Dim Str, inStr_Str
     Str = "abcedfg"
@@ -48,7 +48,7 @@ set asdf=Server.CreateObject("개체이름")
 ~~~
 > 결과값 : 0
 
-~~~asp
+~~~vbnet
 <%
     Dim Str, inStr_Str
     Str = "abcedfg"
@@ -66,7 +66,7 @@ set asdf=Server.CreateObject("개체이름")
     - **앞뒤**의 공백을 없애주는 함수
     - 중간중간의 공백은 없어지지 않는다.
     - `LTrim()`, `RTrim()` 또한 존재한다.
-~~~asp
+~~~vbnet
     Dim strSpace
     strSpace = "Welcome to my blog"
     strSpace = Trim(strSpace)
@@ -77,7 +77,7 @@ set asdf=Server.CreateObject("개체이름")
 - `Replace()`
     - 문자를 **교체**해주는 함수
 
-~~~asp
+~~~vbnet
     Dim strReplace
     strReplace = "당신을 좋아합니다."
 
@@ -116,7 +116,7 @@ set asdf=Server.CreateObject("개체이름")
 
 - `CDATE()`
     - 날짜 관련 값을 *YYYY-MM-DD* 형식으로 보여준다.
-~~~asp
+~~~vbnet
     sDate = "2019년 04월 01일"
     Response.Write CDate(sDate)
 ~~~
@@ -126,7 +126,7 @@ set asdf=Server.CreateObject("개체이름")
 
 - 제어문
     - `IF Then`, `ElseIf Then`, `END IF`
-~~~asp
+~~~vbnet
 <%
     Dim intNum
     intNum = 8
@@ -147,7 +147,7 @@ End If
 
 - 주석
     - `'`
-~~~asp
+~~~vbnet
 '이것은 주석입니다.
 ~~~
 
@@ -155,7 +155,7 @@ End If
 
 - `IsArray()`
     - `IsArray`는 입력값이 배열인지 아닌지 확인하는 함수이다.
-~~~asp
+~~~vbnet
     Dim arr(3)
     Dim val
 
@@ -170,7 +170,7 @@ End If
 
 - `Ubound()`
     - 입력된 배열의 크기를 확인해주는 함수
-~~~asp
+~~~vbnet
     Dim arr(3)
     Dim val
     Response.Write "Ubound(val) : " & Ubound(val)
@@ -179,9 +179,165 @@ End If
 > 런타임 오류
 > 변수 val는 배열이 아니며, Ubound는 배열이 아닌 값을 인수로 받으면 오류가 발생한다.
 
-~~~asp
+~~~vbnet
     Dim arr(3)
     Dim val
     Response.Write "Ubound(arr) : " & Ubound(arr)
 ~~~
 > 결과값 : 3
+
+- 기존 크기가 정해지지 않은 배열변수를 만들고 배열에 갯수를 재할당하는 방법
+
+```vbnet
+Dim 변수명()
+ReDim 변수명(크기)
+```
+
+- 변수 선언 시 주의 사항
+
+    1. 변수이름에는 마침표를 사용할 수 없습니다.
+
+    2. 256자를 초과할 수 없습니다.
+
+    3. 변수이름은 프로그램내에서 유일해야 합니다.
+
+    4. 알파벳문자로 시작해야 합니다.
+
+    - **참고**
+        - asp는 변수를 선언하지 않아도 자동으로 변수로 인식합니다.
+
+```vbnet
+Dim myvar
+myvar = "변수"
+\\\\\\\\\\\\\
+myvar = "변수" 'Dim을 사용하지 않아도 된다.
+```
+
+- 다만 이렇게 하지 않는 경우는 서버측 자원소모가 많기 때문입니다.
+- 그래서 프로그램 최상단에 `option explicit`라는 문장을 넣어 변수가 자동생성되지 않도록 옵션을 붙이기도 합니다.
+
+- `UCase()`
+    - `UCase()`는 입력받은 영문자를 모두 대문자로 변경하는 함수이다.
+
+```vbnet
+UCase("Ucase 예제")
+```
+
+- 결과값 : UCASE 예제
+
+- `LCase()`
+    - `LCase()`는 입력받은 영문자를 모두 대문자로 변경하는 함수이다.
+
+```vbnet
+LCase("Lcase 예제")
+```
+
+- 결과값 : LCASE 예제
+
+- `DATEDIFF()`
+    - 특정일을 기준으로 남은 날짜를 구하기 위해 사용
+
+```vbnet
+<%
+Dim fromDate, toDate
+fromDate= "2019-04-25"
+toDate= "2019-05-16"
+response.write DateDiff("d", fromDate, toDate)
+%>
+```
+
+- 결과값 : 21
+    - `toDate`에서 `fromDate`를 뺀 값을 일자로 표현하기 때문에 결과값은 **21**이 나온다.
+    - 맨 앞에 나오는 `d`는 날짜형태 중 하나이고, 두 날짜의 차이 일 수를 보여준다.
+    - 사용할 수 있는 날짜 형태
+        - yyyy : 년
+        - q : 분기
+        - m : 월
+        - d : 일
+        - w : 주
+        - h : 시
+        - n : 분
+        - s : 초
+
+- `콜론 연산자(:)`
+    - 콜론 연산자는 단지 여러줄에 걸려첫 사용해야하는 ASP구문들이 한 줄에 사용되도록 해준다.
+
+```vbnet
+Dim a, b
+a = 10
+b = 20
+'으로 사용해야 하는 asp구문은 다음과 같이 될 수 있다.
+
+Dim a, b : a = 10 : b = 20
+```
+
+- `분할 연산자(_)`
+    - 분할 연산자는 한줄에 사용해야만 하는 ASP구문이 여러줄에 걸쳐서 사용할 수 있도록 해준다.
+
+```vbnet
+Dim greeting, name
+greeting = "hello"
+name = "my name is mugon"
+response.write "<script> document.write('" & greeting & "<br>" & name & "'); </script>"
+'위와 같은 구조를
+
+Dim greeting, name
+greeting = "hello"
+name = "my name is mugon"
+response.write "<script> document.write('"_
+								& greeting & "<br>"_
+								& name & "'); </script>"
+'와 같이 여러줄로 쓸 수 있다.
+```
+
+- 단 따옴표로 이루어진 String문장이나, 예약어, 상수, 변수명은 중간에 _를 이용하여 여러줄로 표시할 수 없다.
+- 예를 들어,
+
+```vbnet
+response.write "hello"
+'를
+resp_
+onse_write "hel_
+lo"
+'로 표현할 수 없다.
+```
+
+- `<%= %>`
+    - 데이터를 나타날 때 사용
+
+- `<!--#include virtual="/config/dbcon.asp"-->` vs `<!--#include file="./include/DBFunction.asp"-->`
+    - `virtual`은 절대경로
+    - `file`은 상대경로
+
+- `Call`
+    - `Sub`, `Function`을 호출할 때 사용한다.
+
+- `Function`
+    - 리턴값이 있는 함수
+
+```vbnet
+Function aa(str)
+	aa = str
+End Function
+
+Response.Write(aa("aa"))
+```
+
+- 결과값 : aa
+
+- `Sub`
+    - 리턴값이 없는 함수
+
+```vbnet
+Sub bb(str)
+	if str == "bb" then
+		Response.Write("bb")
+	Else
+		Response.Write("not bb")
+	End if
+End Sub
+
+Call bb("bb")
+'또는
+bb "bb"
+```
