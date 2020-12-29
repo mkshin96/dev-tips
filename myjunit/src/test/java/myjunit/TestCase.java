@@ -6,7 +6,7 @@ import org.slf4j.LoggerFactory;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-public abstract class TestCase {
+public abstract class TestCase implements Test {
 
     private static final Logger logger = LoggerFactory.getLogger(TestCase.class);
 
@@ -16,6 +16,10 @@ public abstract class TestCase {
         this.testCaseName = testCaseName;
     }
 
+    public String getTestCaseName() {
+        return testCaseName;
+    }
+
     public TestResult run() {
         TestResult testResult = createTestResult();
         run(testResult);
@@ -23,6 +27,7 @@ public abstract class TestCase {
         return testResult;
     }
 
+    @Override
     public void run(TestResult testResult) {
         testResult.startTest();
         before();
@@ -40,10 +45,6 @@ public abstract class TestCase {
         after();
     }
 
-    private boolean isAssertionFailed(InvocationTargetException ite) {
-        return ite.getTargetException() instanceof AssertionFailedError;
-    }
-
     protected void before() {}
 
     public void runTestCase() throws InvocationTargetException, IllegalAccessException, NoSuchMethodException {
@@ -56,5 +57,9 @@ public abstract class TestCase {
 
     public TestResult createTestResult() {
         return new TestResult();
+    }
+
+    private boolean isAssertionFailed(InvocationTargetException ite) {
+        return ite.getTargetException() instanceof AssertionFailedError;
     }
 }

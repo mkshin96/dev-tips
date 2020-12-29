@@ -27,15 +27,29 @@ public class TestCaseTest extends TestCase {
         Assert.assertTrue(sum == 20);
     }
 
+    @DisplayName("Assert클래스의 assertTrue 테스트")
     public void runTestMinus() {
         int minus = 100 - base;
         Assert.assertTrue(minus == 90);
     }
 
+    @DisplayName("실패할 테스트")
+    public void failedTest() {
+        int minus = 10 - base;
+        Assert.assertTrue(minus == -10);
+    }
+
+
     public static void main(String[] args) {
+        TestSuite testSuite = new TestSuite();
+
+        testSuite.addTestCase(new TestCaseTest("runTest"));
+        testSuite.addTestCase(new TestCaseTest("runTestMinus"));
+        testSuite.addTestCase(new TestCaseTest("failedTest"));
+
         TestResult testResult = new TestResult();
-        new TestCaseTest("runTest").run(testResult);
-        new TestCaseTest("runTestMinus").run(testResult);
+        testSuite.run(testResult);
+
         testResult.printCount();
     }
 }
