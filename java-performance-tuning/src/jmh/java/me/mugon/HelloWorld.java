@@ -1,13 +1,10 @@
 package me.mugon;
 
 import org.openjdk.jmh.annotations.*;
-import org.openjdk.jmh.runner.Runner;
-import org.openjdk.jmh.runner.RunnerException;
-import org.openjdk.jmh.runner.options.Options;
-import org.openjdk.jmh.runner.options.OptionsBuilder;
-
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
+import java.util.TreeSet;
 import java.util.concurrent.TimeUnit;
 
 @State(Scope.Thread)
@@ -15,20 +12,36 @@ import java.util.concurrent.TimeUnit;
 @OutputTimeUnit(TimeUnit.MICROSECONDS)
 public class HelloWorld {
 
+    final int LOOP_COUNT = 1000;
+    Set<String> set;
+    String data = "abcdefghijklmnopqrstuvwxyz";
+
     @Benchmark
-    public void firstBenchMark() {
-        Set<String> set = new HashSet();
-        String s = "abcdefghijklmnopqrstu";
-        for (int i = 0; i < 10000; i++) {
-             set.add(s + i);
+    public void addHashSet() {
+        set = new HashSet<>();
+        for (int i = 0; i < LOOP_COUNT; i++) {
+            set.add(data + i);
         }
     }
 
-    public static void main(String[] args) throws RunnerException {
-        Options opt = new OptionsBuilder().include(HelloWorld.class.getSimpleName())
-                .forks(1)
-                 .build();
+    @Benchmark
+    public void addTreeSet() {
+        set = new TreeSet<>();
+        for (int i = 0; i < LOOP_COUNT; i++) {
+            set.add(data + i);
+        }
+    }
 
-        new Runner(opt).run();
+    @Benchmark
+    public void addLinkedHashSet() {
+        set = new LinkedHashSet<>();
+        for (int i = 0; i < LOOP_COUNT; i++) {
+            set.add(data + i);
+        }
+    }
+
+    public static void main(String[] args) {
+        HelloWorld helloWorld = new HelloWorld();
+        helloWorld.addHashSet();
     }
 }

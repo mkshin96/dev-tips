@@ -1,1 +1,2 @@
-Benchmark  Mode  Cnt  Score   Error  Units
+Benchmark                  Mode  Cnt    Score    Error  Units
+HelloWorld.firstBenchMark  avgt   15  574.733 ± 31.611  us/op

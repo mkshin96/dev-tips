@@ -1,0 +1,3 @@
+JMH S 22 org.sample.MyBenchmark S 55 org.sample.jmh_generated.MyBenchmark_addHashSet_jmhTest S 10 addHashSet S 11 AverageTime E A 1 1 1 E E E E E E E E E E E E E E U 12 MICROSECONDS E E 
+JMH S 22 org.sample.MyBenchmark S 61 org.sample.jmh_generated.MyBenchmark_addLinkedHashSet_jmhTest S 16 addLinkedHashSet S 11 AverageTime E A 1 1 1 E E E E E E E E E E E E E E U 12 MICROSECONDS E E 
+JMH S 22 org.sample.MyBenchmark S 55 org.sample.jmh_generated.MyBenchmark_addTreeSet_jmhTest S 10 addTreeSet S 11 AverageTime E A 1 1 1 E E E E E E E E E E E E E E U 12 MICROSECONDS E E 

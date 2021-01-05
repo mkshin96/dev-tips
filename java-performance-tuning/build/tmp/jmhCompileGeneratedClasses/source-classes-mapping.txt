@@ -4,7 +4,11 @@ me/mugon/jmh_generated/HelloWorld_jmhType_B1.java
  me.mugon.jmh_generated.HelloWorld_jmhType_B1
 me/mugon/jmh_generated/HelloWorld_jmhType.java
  me.mugon.jmh_generated.HelloWorld_jmhType
-me/mugon/jmh_generated/HelloWorld_firstBenchMark_jmhTest.java
- me.mugon.jmh_generated.HelloWorld_firstBenchMark_jmhTest
+me/mugon/jmh_generated/HelloWorld_addLinkedHashSet_jmhTest.java
+ me.mugon.jmh_generated.HelloWorld_addLinkedHashSet_jmhTest
+me/mugon/jmh_generated/HelloWorld_addTreeSet_jmhTest.java
+ me.mugon.jmh_generated.HelloWorld_addTreeSet_jmhTest
+me/mugon/jmh_generated/HelloWorld_addHashSet_jmhTest.java
+ me.mugon.jmh_generated.HelloWorld_addHashSet_jmhTest
 me/mugon/jmh_generated/HelloWorld_jmhType_B2.java
  me.mugon.jmh_generated.HelloWorld_jmhType_B2
