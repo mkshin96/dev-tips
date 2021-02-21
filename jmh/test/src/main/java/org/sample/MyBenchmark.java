@@ -34,10 +34,7 @@ package org.sample;
 import org.openjdk.jmh.annotations.*;
 import sun.awt.image.ImageWatched;
 
-import java.util.HashSet;
-import java.util.LinkedHashSet;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 @State(Scope.Thread)
@@ -67,6 +64,9 @@ public class MyBenchmark {
 
     @Benchmark
     public void addLinkedHashSet() {
+        LinkedList<String> list = new LinkedList<>();
+        list.peek()
+
         set = new LinkedHashSet<>();
         for (int i = 0; i < LOOP_COUNT; i++) {
             set.add(data + i);
